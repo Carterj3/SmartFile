@@ -1,0 +1,11 @@
+Desktop Application that interfaces with the Smart File Servers.
+
+-Requires user to log on
+--Potentially hash or something the password so it doesn't have to be reentered.
+
+-Menu to add files
+--Eventually drag/drop (?)
+
+-Check boxes to do stuff to files
+--Delete
+--Modify(?)
