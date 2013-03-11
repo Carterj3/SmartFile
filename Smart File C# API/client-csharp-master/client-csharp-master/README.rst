@@ -2,7 +2,7 @@ A [SmartFile](http://www.smartfile.com/) Open Source project. [Read more](http:/
 
 ![SmartFile](http://www.smartfile.com/images/logo.jpg)
 
-SmartFile API Client (Java)
+SmartFile API Client (C#)
 ====
 
 About
