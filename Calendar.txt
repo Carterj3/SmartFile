@@ -1,0 +1,2 @@
+2013-04-11 : Have Visual Studio set-up
+2013-05-11 : Create methods to do generic tasks with the API
