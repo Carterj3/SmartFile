@@ -1,1 +1,13 @@
 C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\C# Workspace\SmartFile\SmartFile\bin\Debug\SmartFile.exe.config
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\C# Workspace\SmartFile\SmartFile\bin\Debug\SmartFile.exe
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\C# Workspace\SmartFile\SmartFile\bin\Debug\SmartFile.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\C# Workspace\SmartFile\SmartFile\obj\Debug\SmartFile.csprojResolveAssemblyReference.cache
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\C# Workspace\SmartFile\SmartFile\obj\Debug\MainWindow.baml
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\C# Workspace\SmartFile\SmartFile\obj\Debug\MainWindow.g.cs
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\C# Workspace\SmartFile\SmartFile\obj\Debug\App.g.cs
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\C# Workspace\SmartFile\SmartFile\obj\Debug\SmartFile_MarkupCompile.cache
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\C# Workspace\SmartFile\SmartFile\obj\Debug\SmartFile.g.resources
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\C# Workspace\SmartFile\SmartFile\obj\Debug\SmartFile.Properties.Resources.resources
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\C# Workspace\SmartFile\SmartFile\obj\Debug\SmartFile.csproj.GenerateResource.Cache
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\C# Workspace\SmartFile\SmartFile\obj\Debug\SmartFile.exe
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\C# Workspace\SmartFile\SmartFile\obj\Debug\SmartFile.pdb
