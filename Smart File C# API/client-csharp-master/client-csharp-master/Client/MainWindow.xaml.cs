@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using SmartFile;
+
 namespace Client
 {
     /// <summary>
@@ -23,6 +25,7 @@ namespace Client
         public MainWindow()
         {
             InitializeComponent();
+            SmartFile.ClientHandler.getDirectory("/");
         }
 
         private void _Connect_Click(object sender, RoutedEventArgs e)

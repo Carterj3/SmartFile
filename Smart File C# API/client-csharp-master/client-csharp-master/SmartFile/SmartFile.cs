@@ -300,7 +300,7 @@ namespace SmartFile
 			parts.Add(endpoint);
 			if (id != null)
 				parts.Add(id.ToString());
-			string path = string.Join("/", (string[])parts.ToArray());
+			string path = string.Join("/", (string[])parts.ToArray(typeof (string)));
 			if (!path.EndsWith("/"))
 				path += "/";
 			while (path.Contains("//"))

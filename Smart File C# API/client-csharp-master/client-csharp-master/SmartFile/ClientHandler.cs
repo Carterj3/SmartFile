@@ -1,26 +1,29 @@
 ﻿
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace SmartFile
 {
     public class ClientHandler
     {
-        BasicClient client = new BasicClient();
-        public static string YodelKey = "MkWmIqdJNKrrUYzbDGIacXmtrLCr4b";
-        public static string YodelPassword = "An4Qbqc6AxjruGHgv2w5HSENZqcqzL";
-
+        private static string YodelKey = "MkWmIqdJNKrrUYzbDGIacXmtrLCr4b";
+        private static string YodelPassword = "An4Qbqc6AxjruGHgv2w5HSENZqcqzL";
+        private static BasicClient client = new BasicClient(YodelKey, YodelPassword);
 
         private string copiedPath = "";
 
         public ClientHandler()
         {
         }
-        public String[] getDirectory(String directory)
+        public static String[] getDirectory(String directory)
         {
+            Hashtable h = new Hashtable();
+            h.Add(directory, directory);
+            Console.WriteLine(ClientHandler.client.Get("path/info", null, h));
             return null;
         }
         public Boolean newFolder(String directory, String folderName)
