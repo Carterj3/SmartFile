@@ -20,14 +20,25 @@ namespace Client
     /// </summary>
     public partial class MainWindow
     {
+
+        Boolean dialogOpen = false;
+    
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        public void setDialogOpen(Boolean b)
+        {
+            dialogOpen = b;
+        }
+
         private void _Connect_Click(object sender, RoutedEventArgs e)
         {
-
+            Connet temp = new Connet(this);
+            dialogOpen = true;
+            temp.Show();
         }
 
         private void _Disconnect_Click(object sender, RoutedEventArgs e)

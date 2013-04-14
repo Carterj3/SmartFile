@@ -19,3 +19,5 @@ C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\client-csha
 C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\Client\bin\Debug\Microsoft.Windows.Shell.xml
 C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\Client\obj\Debug\Client.exe
 C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\Client\obj\Debug\Client.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\Client\obj\Debug\Connet.baml
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\Client\obj\Debug\Connet.g.cs
