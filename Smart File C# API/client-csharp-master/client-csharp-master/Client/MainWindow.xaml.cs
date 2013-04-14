@@ -25,7 +25,7 @@ namespace Client
         public MainWindow()
         {
             InitializeComponent();
-            SmartFile.ClientHandler.getDirectory("/");
+            SmartFile.ClientHandler.getDirectory("");
         }
 
         private void _Connect_Click(object sender, RoutedEventArgs e)

@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +22,40 @@ namespace SmartFile
         }
         public static String[] getDirectory(String directory)
         {
-            Hashtable h = new Hashtable();
-            h.Add(directory, directory);
-            Console.WriteLine(ClientHandler.client.Get("path/info", null, h));
+            Stream r = client.Get("path/info", directory).GetResponseStream();
+
+            Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
+            StreamReader readStream = new StreamReader(r, encode);
+            StringBuilder s = new StringBuilder();
+            char[] read = new char[256];
+            int count = readStream.Read(read, 0, 256);
+
+            while (count > 0)
+            {
+                s.Append(read);
+                count = readStream.Read(read, 0, 256);
+            }
+
+            string str = s.ToString();
             return null;
         }
         public Boolean newFolder(String directory, String folderName)
         {
+            Hashtable h = new Hashtable();
+            h.Add(directory, folderName);
+            Stream r = client.Post("path/info", null, h).GetResponseStream();
+
+            Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
+            StreamReader readStream = new StreamReader(r, encode);
+            StringBuilder s = new StringBuilder();
+            char[] read = new char[256];
+            int count = readStream.Read(read, 0, 256);
+            while (count > 0)
+            {
+                s.Append(read);
+                count = readStream.Read(read, 0, 256);
+            }
+            string str = s.ToString();
             return false;
         }
 
