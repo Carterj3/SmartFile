@@ -7,7 +7,8 @@
         Width="770" Height="600"
         MaxWidth="770"
         MinWidth="350" MinHeight="500"
-        Closing="Window_Closing">
+        Closing="Window_Closing"
+        Icon="IC.ico">
 
     <Grid>
         <ribbon:Ribbon x:Name="Ribbon" Title="Ribbon Title">
@@ -89,6 +90,7 @@
 
                     <ribbon:RibbonMenuItem
                     Header="Rename"
+                    Name="_Rename"
                     Click="Rename_Click">
 
                     </ribbon:RibbonMenuItem>
@@ -112,6 +114,7 @@
                     </ribbon:RibbonMenuItem>
                     <ribbon:RibbonMenuItem
                     Header="Delete"
+                    Name="_Delete"
                     Click="Delete_Click">
 
                     </ribbon:RibbonMenuItem>

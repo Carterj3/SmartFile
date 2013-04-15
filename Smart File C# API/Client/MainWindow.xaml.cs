@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -25,14 +26,24 @@ namespace Client
     {
 
         Boolean dialogOpen = false;
+        Window openedWindow = null;
+
+
         SmartFile.ClientHandler client = null;
         ObservableCollection<String> directory = new ObservableCollection<string>();
         String currentPath = "";
+
+        Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[] filesItems = new Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[19];
+        Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[] accessItems = new Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[6];
+        Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[] helpItems = new Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[0];
+        Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[] aboutItems = new Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[0];
+
 
         Connect tempConnect = null;
         NewDirectory tempNewDirectory = null;
         RenameDirectory tempRenameDirectory = null;
         MoveDirectory tempMoveDirectory = null;
+        AddUser tempAddUser = null;
 
         public MainWindow()
         {
@@ -42,18 +53,62 @@ namespace Client
             tempNewDirectory = new NewDirectory(this);
             tempRenameDirectory = new RenameDirectory(this);
             tempMoveDirectory = new MoveDirectory(this);
+            tempAddUser = new Client.AddUser(this);
             #endregion
+            #region Initialize Lists of ribbonButtons
 
+            filesItems = new Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[17]
+            {NewDirectory,Rename, Move,Delete,
+            Upload, Download, _Rename,Copy,Paste,Details,_Delete,
+            _AddUser,_EditUser,_RemoveUser,
+            _AddGroup,_EditGroup,_RemoveGroup};
 
+            accessItems = new Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[6]
+            {AddUser,EditUser,RemoveUser,
+            AddGroup,EditGroup,RemoveGroup};
+
+            helpItems = new Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[0];
+
+            aboutItems = new Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[0];
+
+            #endregion
 
             directory.Add("Line 1");
             directory.Add("Line 2");
             dockPanel.DataContext = directory;
+
         }
+
+
+        public void enableButtons()
+        {
+            setButtons(true);
+        }
+        public void disableButtons()
+        {
+            setButtons(false);
+        }
+
+        private void setButtons(Boolean b)
+        {
+            for (int i = 0; i < filesItems.Length; i++)
+            {
+                filesItems[i].IsEnabled = b;
+            }
+
+            for (int i = 0; i < accessItems.Length; i++)
+            {
+                accessItems[i].IsEnabled = b;
+            }
+
+        }
+
 
         public void setDialogOpen(Boolean b)
         {
             dialogOpen = b;
+            openedWindow = null;
+            enableButtons();
         }
 
         public void openWindow(Window w)
@@ -61,7 +116,9 @@ namespace Client
             if (!dialogOpen)
             {
                 dialogOpen = true;
+                openedWindow = w;
                 w.Show();
+                disableButtons();
             }
         }
 
@@ -146,17 +203,20 @@ namespace Client
             }
         }
 
-        
+
 
         private void Copy_Click(object sender, RoutedEventArgs e)
         {
-
+            copyDirectory();
         }
+
 
         private void Paste_Click(object sender, RoutedEventArgs e)
         {
-
+            pasteDirectory();
         }
+
+
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
@@ -166,13 +226,15 @@ namespace Client
 
         private void Details_Click(object sender, RoutedEventArgs e)
         {
-
+            details();
         }
+
+
 
 
         private void _AddUser_Click(object sender, RoutedEventArgs e)
         {
-
+            openWindow(tempAddUser);
         }
 
         private void _EditUser_Click(object sender, RoutedEventArgs e)
@@ -236,6 +298,7 @@ namespace Client
         {
             client = null;
             client = new SmartFile.ClientHandler(key, password);
+            client.getDirectory(currentPath);
 
         }
 
@@ -265,12 +328,34 @@ namespace Client
             Console.WriteLine("Uploading :[" + filename + "]");
         }
 
-        private void DownloadFile(string filename)
+        internal void DownloadFile(string filename)
         {
-            Console.WriteLine("Downloading ["+listBox.SelectedItem+"] to [" + filename + "]");
+            Console.WriteLine("Downloading [" + listBox.SelectedItem + "] to [" + filename + "]");
+        }
+
+        internal void copyDirectory()
+        {
+            Console.WriteLine("Copying Directory [" + currentPath + "] / [" + listBox.SelectedItem + "]");
+        }
+
+        internal void pasteDirectory()
+        {
+            Console.WriteLine("Pasting to Directory [" + currentPath + "] / [" + listBox.SelectedItem + "]");
+        }
+
+        private void details()
+        {
+            Console.WriteLine("Getting details on [" + currentPath + "] / [" + listBox.SelectedItem + "]");
+        }
+
+        internal void addUser(string user, bool? list, bool? read, bool? write, bool? delete)
+        {
+            Console.WriteLine("Add User :[" + user + "] with List?[" + list + "] Read?[" + read + "] Write?[" + write + "] Delete?[" + delete + "]");
         }
 
         #endregion
+
+
 
 
     }
