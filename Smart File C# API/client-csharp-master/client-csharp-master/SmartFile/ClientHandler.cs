@@ -9,15 +9,23 @@ namespace SmartFile
 {
     public class ClientHandler
     {
-        BasicClient client = new BasicClient();
+        BasicClient client;
         public static string YodelKey = "MkWmIqdJNKrrUYzbDGIacXmtrLCr4b";
         public static string YodelPassword = "An4Qbqc6AxjruGHgv2w5HSENZqcqzL";
+
+        private string key;
+        private string password;
 
 
         private string copiedPath = "";
 
-        public ClientHandler()
+        public ClientHandler(String key, String password)
         {
+            this.key = key;
+            this.password = password;
+
+            client = new BasicClient(key, password);
+
         }
         public String[] getDirectory(String directory)
         {

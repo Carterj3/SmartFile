@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\Client\App.xaml
-2-917411548
+5955222529
 
-6517871946
+91029731312
 141822493171
-Connet.xaml;MainWindow.xaml;
+PopupWindows\Connect.xaml;MainWindow.xaml;PopupWindows\MoveDirectory.xaml;PopupWindows\NewDirectory.xaml;PopupWindows\RenameDirectory.xaml;
 
 False
 

@@ -1,0 +1,27 @@
+﻿<Window x:Class="Client.Connect"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Connect" Height="235" Width="500"
+        Closing="Window_Closing">
+    <Grid Margin="0,0,2,8">
+        <Label Margin="10,10,383,131">
+            API:Key
+        </Label>
+        <Label Margin="10,70,383,75">
+            API:Password
+        </Label>
+        <TextBox Name="_ConnectKey" Margin="113,10,10,131">
+            Key
+        </TextBox>
+        <TextBox Name="_ConnectPassword" Margin="113,70,10,75" RenderTransformOrigin="0.5,0.5">
+            Password
+        </TextBox>
+        <Button Name="_ConnectOk" Margin="10,126,342,10" Click="_ConnectOk_Click" >
+            Ok
+        </Button>
+
+        <Button Name="_ConnectCancel" Margin="154,126,197,10" Click="_ConnectCancel_Click" >
+            Cancel
+        </Button>
+    </Grid>
+</Window>

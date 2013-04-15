@@ -16,12 +16,12 @@ using System.Windows.Shapes;
 namespace Client
 {
     /// <summary>
-    /// Interaction logic for Connet.xaml
+    /// Interaction logic for Connect.xaml
     /// </summary>
-    public partial class Connet : Window
+    public partial class Connect : Window
     {
         MainWindow parent;
-        public Connet(MainWindow owner)
+        public Connect(MainWindow owner)
         {
             parent = owner;
             InitializeComponent();
@@ -29,7 +29,22 @@ namespace Client
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            parent.setDialogOpen(true);
+            parent.setDialogOpen(false);
+            e.Cancel = true;
+            this.Hide();
+        }
+
+        private void _ConnectOk_Click(object sender, RoutedEventArgs e)
+        {
+            String key = _ConnectKey.GetLineText(0);
+            String password = _ConnectPassword.GetLineText(0);
+            parent.connect(key, password);
+            this.Close();
+        }
+
+        private void _ConnectCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         

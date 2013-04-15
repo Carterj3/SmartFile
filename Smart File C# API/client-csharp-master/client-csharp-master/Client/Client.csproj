@@ -72,7 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Connet.xaml">
+    <Page Include="PopupWindows\Connect.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,15 +84,36 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Connet.xaml.cs">
-      <DependentUpon>Connet.xaml</DependentUpon>
+    <Compile Include="PopupWindows\Connect.xaml.cs">
+      <DependentUpon>Connect.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PopupWindows\MoveDirectory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopupWindows\NewDirectory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopupWindows\RenameDirectory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PopupWindows\MoveDirectory.xaml.cs">
+      <DependentUpon>MoveDirectory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopupWindows\NewDirectory.xaml.cs">
+      <DependentUpon>NewDirectory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopupWindows\RenameDirectory.xaml.cs">
+      <DependentUpon>RenameDirectory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

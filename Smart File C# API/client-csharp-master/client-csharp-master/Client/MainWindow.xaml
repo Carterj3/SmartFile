@@ -6,220 +6,233 @@
         x:Name="RibbonWindow"
         Width="770" Height="600"
         MaxWidth="770"
-        MinWidth="350" MinHeight="500">
+        MinWidth="350" MinHeight="500"
+        Closing="Window_Closing">
 
-
-    <ribbon:Ribbon x:Name="Ribbon" Title="Ribbon Title">
-        <ribbon:Ribbon.ApplicationMenu>
-            <ribbon:RibbonApplicationMenu>
-                <ribbon:RibbonApplicationMenuItem
+    <Grid>
+        <ribbon:Ribbon x:Name="Ribbon" Title="Ribbon Title">
+            <ribbon:Ribbon.ApplicationMenu>
+                <ribbon:RibbonApplicationMenu>
+                    <ribbon:RibbonApplicationMenuItem
                     Name="_Connect"
                     Header="Connect"
                     Click="_Connect_Click">
 
-                </ribbon:RibbonApplicationMenuItem>
-                <ribbon:RibbonApplicationMenuItem
+                    </ribbon:RibbonApplicationMenuItem>
+                    <ribbon:RibbonApplicationMenuItem
                     Name="_Disconnect"
                     Header="Disconnect"
                     Click="_Disconnect_Click">
 
-                </ribbon:RibbonApplicationMenuItem>
-                <ribbon:RibbonApplicationMenuItem
+                    </ribbon:RibbonApplicationMenuItem>
+                    <ribbon:RibbonApplicationMenuItem
                     Name="_Exit"
                     Header="Exit"
                     Click="_Exit_Click">
 
-                </ribbon:RibbonApplicationMenuItem>
-            </ribbon:RibbonApplicationMenu>
-        </ribbon:Ribbon.ApplicationMenu>
-        <ribbon:RibbonTab x:Name="FileTab" 
+                    </ribbon:RibbonApplicationMenuItem>
+                </ribbon:RibbonApplicationMenu>
+            </ribbon:Ribbon.ApplicationMenu>
+            <ribbon:RibbonTab x:Name="FileTab" 
                               Header="File">
 
-            <ribbon:RibbonGroup
+                <ribbon:RibbonGroup
                     Header="Folders">
 
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="New Directory"
                     Name="NewDirectory"
                     Click="NewDirectory_Click">
 
-                </ribbon:RibbonMenuItem>
+                    </ribbon:RibbonMenuItem>
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Rename"
                     Name="Rename"
                     Click="Rename_Click">
 
-                </ribbon:RibbonMenuItem>
+                    </ribbon:RibbonMenuItem>
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Move"
                     Name="Move"
                     Click="Move_Click">
 
-                </ribbon:RibbonMenuItem>
+                    </ribbon:RibbonMenuItem>
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Delete"
                     Name="Delete"
                     Click="Delete_Click">
 
-                </ribbon:RibbonMenuItem>
-            </ribbon:RibbonGroup>
+                    </ribbon:RibbonMenuItem>
+                </ribbon:RibbonGroup>
 
-            <ribbon:RibbonGroup
+                <ribbon:RibbonGroup
                     Header="File">
 
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Upload"
                     Name="Upload"
                     Click="Upload_Click">
 
-                </ribbon:RibbonMenuItem>
+                    </ribbon:RibbonMenuItem>
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Download"
                     Name="Download"
                     Click="Download_Click">
 
-                </ribbon:RibbonMenuItem>
+                    </ribbon:RibbonMenuItem>
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Rename"
                     Click="Rename_Click">
 
-                </ribbon:RibbonMenuItem>
-                <ribbon:RibbonMenuItem
+                    </ribbon:RibbonMenuItem>
+                    <ribbon:RibbonMenuItem
                     Header="Copy"
                     Name="Copy"
                     Click="Copy_Click">
 
-                </ribbon:RibbonMenuItem>
-                <ribbon:RibbonMenuItem
+                    </ribbon:RibbonMenuItem>
+                    <ribbon:RibbonMenuItem
                     Header="Paste"
                     Name="Paste"
                     Click="Paste_Click">
 
-                </ribbon:RibbonMenuItem>
-                <ribbon:RibbonMenuItem
+                    </ribbon:RibbonMenuItem>
+                    <ribbon:RibbonMenuItem
                     Header="Details"
                     Name="Details"
                     Click="Details_Click">
 
-                </ribbon:RibbonMenuItem>
-                <ribbon:RibbonMenuItem
+                    </ribbon:RibbonMenuItem>
+                    <ribbon:RibbonMenuItem
                     Header="Delete"
                     Click="Delete_Click">
 
-                </ribbon:RibbonMenuItem>
-            </ribbon:RibbonGroup>
+                    </ribbon:RibbonMenuItem>
+                </ribbon:RibbonGroup>
 
 
-            <ribbon:RibbonGroup
+                <ribbon:RibbonGroup
                     Header="User Access">
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Add User"
                     Name="_AddUser"
                     Click="_AddUser_Click"
                     >
-                </ribbon:RibbonMenuItem>
+                    </ribbon:RibbonMenuItem>
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Edit User"
                     Name="_EditUser"
                     Click="_EditUser_Click">
-                </ribbon:RibbonMenuItem>
+                    </ribbon:RibbonMenuItem>
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Remove User"
                     Name="_RemoveUser"
                     Click="_RemoveUser_Click">
-                </ribbon:RibbonMenuItem>
-            </ribbon:RibbonGroup>
-            <ribbon:RibbonGroup
+                    </ribbon:RibbonMenuItem>
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup
                     Header="Group Access">
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Add Group"
                     Name="_AddGroup"
                     Click="_AddGroup_Click">
-                </ribbon:RibbonMenuItem>
+                    </ribbon:RibbonMenuItem>
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Edit Group"
                     Name="_EditGroup"
                     Click="_EditGroup_Click">
-                </ribbon:RibbonMenuItem>
+                    </ribbon:RibbonMenuItem>
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Remove Group"
                     Name="_RemoveGroup"
                     Click="_RemoveGroup_Click">
-                </ribbon:RibbonMenuItem>
-            </ribbon:RibbonGroup>
+                    </ribbon:RibbonMenuItem>
+                </ribbon:RibbonGroup>
 
 
-        </ribbon:RibbonTab>
-        <ribbon:RibbonTab x:Name="TaskTab" 
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="TaskTab" 
                               Header="Tasks">
 
-        </ribbon:RibbonTab>
-        <ribbon:RibbonTab x:Name="AccessTab" 
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="AccessTab" 
                               Header="Access">
-            <ribbon:RibbonGroup
+                <ribbon:RibbonGroup
                     Header="User Access"
                 >
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Add User"
                     Name="AddUser"
                     Click="AddUser_Click">
-                </ribbon:RibbonMenuItem>
+                    </ribbon:RibbonMenuItem>
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Edit User"
                     Name="EditUser"
                     Click="EditUser_Click">
-                </ribbon:RibbonMenuItem>
+                    </ribbon:RibbonMenuItem>
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Remove User"
                     Name="RemoveUser"
                     Click="RemoveUser_Click">
-                </ribbon:RibbonMenuItem>
-            </ribbon:RibbonGroup>
-            <ribbon:RibbonGroup
+                    </ribbon:RibbonMenuItem>
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup
                     Header="Group Access">
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Add Group"
                     Name="AddGroup"
                     Click="AddGroup_Click">
-                </ribbon:RibbonMenuItem>
+                    </ribbon:RibbonMenuItem>
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Edit Group"
                     Name="EditGroup"
                     Click="EditGroup_Click">
-                </ribbon:RibbonMenuItem>
+                    </ribbon:RibbonMenuItem>
 
-                <ribbon:RibbonMenuItem
+                    <ribbon:RibbonMenuItem
                     Header="Remove Group"
                     Name="RemoveGroup"
                     Click="RemoveGroup_Click">
-                </ribbon:RibbonMenuItem>
-            </ribbon:RibbonGroup>
-        </ribbon:RibbonTab>
-        <ribbon:RibbonTab x:Name="HelpTab" 
+                    </ribbon:RibbonMenuItem>
+                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="HelpTab" 
                               Header="Help">
 
-        </ribbon:RibbonTab>
-        <ribbon:RibbonTab x:Name="AboutTab" 
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="AboutTab" 
                               Header="About">
 
-        </ribbon:RibbonTab>
-    </ribbon:Ribbon>
+            </ribbon:RibbonTab>
+        </ribbon:Ribbon>
+        <DockPanel x:Name="dockPanel">
+            <ListBox Margin="0,154,0,10" Width="732"
+                     Name="listBox"
+                     SelectionMode="Single"
+                     ItemsSource="{Binding}"
+                     IsSynchronizedWithCurrentItem="True">
+
+            </ListBox>
+        </DockPanel>
+    </Grid>
+
+
 </ribbon:RibbonWindow>
