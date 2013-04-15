@@ -9,10 +9,10 @@ File
 		Upload -X
 		Download -X
 		Rename -X
-		Copy
-		Paste
-		Details
-		Delete
+		Copy -X
+		Paste -X
+		Details -X
+		Delete -X
 
 	User Access
 		Add User

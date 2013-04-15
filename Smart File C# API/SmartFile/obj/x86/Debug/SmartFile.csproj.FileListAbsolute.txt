@@ -1,0 +1,15 @@
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\SmartFile\obj\x86\Debug\SmartFile.csprojResolveAssemblyReference.cache
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\SmartFile\bin\Debug\SmartFileAPI.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\SmartFile\bin\Debug\SmartFileAPI.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\SmartFile\obj\x86\Debug\SmartFileAPI.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\SmartFile\obj\x86\Debug\SmartFileAPI.pdb
+C:\Users\Jeffrey Carter\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\SmartFile\bin\Debug\SmartFileAPI.dll
+C:\Users\Jeffrey Carter\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\SmartFile\bin\Debug\SmartFileAPI.pdb
+C:\Users\Jeffrey Carter\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\SmartFile\obj\x86\Debug\SmartFile.csprojResolveAssemblyReference.cache
+C:\Users\Jeffrey Carter\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\SmartFile\obj\x86\Debug\SmartFileAPI.dll
+C:\Users\Jeffrey Carter\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\SmartFile\obj\x86\Debug\SmartFileAPI.pdb
+C:\Users\Carterj3-Tower\Desktop\SmartFile\Smart File C# API\SmartFile\obj\x86\Debug\SmartFile.csprojResolveAssemblyReference.cache
+C:\Users\Carterj3-Tower\Desktop\SmartFile\Smart File C# API\SmartFile\obj\x86\Debug\SmartFileAPI.dll
+C:\Users\Carterj3-Tower\Desktop\SmartFile\Smart File C# API\SmartFile\bin\Debug\SmartFileAPI.dll
+C:\Users\Carterj3-Tower\Desktop\SmartFile\Smart File C# API\SmartFile\bin\Debug\SmartFileAPI.pdb
+C:\Users\Carterj3-Tower\Desktop\SmartFile\Smart File C# API\SmartFile\obj\x86\Debug\SmartFileAPI.pdb
