@@ -1,0 +1,82 @@
+File
+	Folders
+		New Directory -X
+		Rename -X
+		Move -X
+		Delete -X
+
+	File
+		Upload -X
+		Download -X
+		Rename -X
+		Copy
+		Paste
+		Details
+		Delete
+
+	User Access
+		Add User
+		Edit User
+		Remove user
+
+	Group Access
+		Add Group
+		Edit Group
+		Remove Group
+
+Tasks
+
+Access
+	User Access
+		Add User
+		Edit User
+		Remove User
+		
+	Group Access
+		Add Group
+		Edit Group
+		Remove Group
+
+Help
+	File
+		Folders
+			New Directory
+			Rename
+			Move
+			Delete
+
+		File
+			Upload
+			Download
+			Rename
+			Copy
+			Paste
+			Details
+			Delete
+
+		User Access
+			Add User
+			Edit User
+			Remove user
+
+		Group Access
+			Add Group
+			Edit Group
+			Remove Group
+
+	Tasks
+
+	Access
+		User Access
+			Add User
+			Edit User
+			Remove User
+			
+		Group Access
+			Add Group
+			Edit Group
+			Remove Group
+	
+	About
+
+About

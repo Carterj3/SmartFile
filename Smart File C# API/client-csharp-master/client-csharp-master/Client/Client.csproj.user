@@ -10,4 +10,7 @@
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>C:\Users\Jeffrey Carter\Documents\GitHub\SmartFile\Smart File C# API\client-csharp-master\client-csharp-master\Client\images\</ReferencePath>
+  </PropertyGroup>
 </Project>
