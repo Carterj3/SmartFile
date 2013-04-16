@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Microsoft.Windows.Controls;
+using Microsoft.Windows.Controls.Ribbon;
 using System;
 using System.Diagnostics;
 using System.Windows;
