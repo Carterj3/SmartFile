@@ -322,6 +322,7 @@ namespace SmartFile
                 url.Append(Util.UrlEncode(query));
             }
             HttpWebRequest request = HttpWebRequest.Create(url.ToString()) as HttpWebRequest;
+
             request.Method = method;
             request.UserAgent = string.Format(HTTP_USER_AGENT, this.version);
             int trys = 0;

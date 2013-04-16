@@ -11,10 +11,10 @@
             API:Password
         </Label>
         <TextBox Name="_ConnectKey" Margin="113,10,10,131">
-            Key
+            MkWmIqdJNKrrUYzbDGIacXmtrLCr4b
         </TextBox>
         <TextBox Name="_ConnectPassword" Margin="113,70,10,75" RenderTransformOrigin="0.5,0.5">
-            Password
+            An4Qbqc6AxjruGHgv2w5HSENZqcqzL
         </TextBox>
         <Button Name="_ConnectOk" Margin="10,126,342,10" Click="_ConnectOk_Click" >
             Ok
