@@ -125,3 +125,5 @@ C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\
 C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\AddGroup.g.cs
 C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\ViewGroup.baml
 C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\ViewGroup.g.cs
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\ViewPermissions.baml
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\ViewPermissions.g.cs

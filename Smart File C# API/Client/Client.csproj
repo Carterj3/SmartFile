@@ -49,8 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>IC.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="RibbonControlsLibrary, Version=4.0.0.11019, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -130,6 +129,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PopupWindows\ViewPermissions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PopupWindows\ViewUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +153,9 @@
     </Compile>
     <Compile Include="PopupWindows\ViewGroup.xaml.cs">
       <DependentUpon>ViewGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopupWindows\ViewPermissions.xaml.cs">
+      <DependentUpon>ViewPermissions.xaml</DependentUpon>
     </Compile>
     <Compile Include="PopupWindows\ViewUser.xaml.cs">
       <DependentUpon>ViewUser.xaml</DependentUpon>

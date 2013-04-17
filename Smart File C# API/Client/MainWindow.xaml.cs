@@ -25,6 +25,11 @@ namespace Client
     public partial class MainWindow
     {
 
+        /*
+        Client Token: u78PuhtLu9jbHYhG9GoLapEk0oztav
+        Client Secret: 9jhF6Yp6J4Ox2SQj71ihIo9SjDbrCn
+         */
+
         Boolean dialogOpen = false;
         Window openedWindow = null;
 
@@ -48,6 +53,7 @@ namespace Client
         ViewUser tempViewUser = null;
         AddGroup tempAddGroup = null;
         ViewGroup tempViewGroup = null;
+        ViewPermissions tempViewPermissions = null;
 
         public MainWindow()
         {
@@ -62,6 +68,7 @@ namespace Client
             tempViewUser = new Client.ViewUser(this);
             tempAddGroup = new Client.AddGroup(this);
             tempViewGroup = new Client.ViewGroup(this);
+            tempViewPermissions = new Client.ViewPermissions(this);
             #endregion
             #region Initialize Lists of ribbonButtons
 
@@ -81,9 +88,8 @@ namespace Client
 
             #endregion
 
-            directory.Add("Line 1");
-            directory.Add("Line 2");
             dockPanel.DataContext = directory;
+
 
         }
 
@@ -109,6 +115,7 @@ namespace Client
                 accessItems[i].IsEnabled = b;
             }
 
+            Ribbon.IsEnabled = b;
         }
 
 
@@ -228,7 +235,13 @@ namespace Client
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            deleteDirectory();
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete"+listBox.SelectedItem+"?\nThis cannot be undone\n", "Delete Directory", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                // Do this
+                deleteDirectory();
+            }
+            
         }
 
 
@@ -236,9 +249,6 @@ namespace Client
         {
             details();
         }
-
-
-
 
         private void _AddUser_Click(object sender, RoutedEventArgs e)
         {
@@ -262,7 +272,7 @@ namespace Client
 
         private void _EditGroup_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("It does not appear possible to change what users are in a group using the Smartfile 2.0 API");
         }
 
         private void _ViewGroup_Click(object sender, RoutedEventArgs e)
@@ -270,35 +280,154 @@ namespace Client
             openWindow(tempViewGroup);
         }
 
+        private void _TaskRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            refreshTasks();
+        }
+
+
 
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
-
+            _AddUser_Click(sender, e);
         }
 
         private void EditUser_Click(object sender, RoutedEventArgs e)
         {
-
+            _EditUser_Click(sender, e);
         }
 
         private void ViewUser_Click(object sender, RoutedEventArgs e)
         {
-
+            _ViewUser_Click(sender, e);
         }
 
         private void AddGroup_Click(object sender, RoutedEventArgs e)
         {
-
+            _AddGroup_Click(sender, e);
         }
 
         private void EditGroup_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("It does not appear possible to user the api to change what users are in a group");
         }
 
         private void ViewGroup_Click(object sender, RoutedEventArgs e)
         {
+            _ViewGroup_Click(sender, e);
+        }
 
+        private void _AccessViewPermissions_Click(object sender, RoutedEventArgs e)
+        {
+
+            tempViewPermissions.setPath(listBox.SelectedItem.ToString());
+            openWindow(tempViewPermissions);
+        }
+
+        #region Help Connectivity
+        private void _HelpFileNewDirectory_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The New Directory button will allow you to create a new Folder (Directory) of a specified name in whatever directory you have currently selected\n");
+        }
+
+        private void _HelpFileRename_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The Rename [Directory] button will allow you to rename the currently selected item {Directory, File} to a new specified name\n");
+        }
+
+        private void _HelpFileMoveDirectory_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The Move [Directory] button will allow you to move the currently selected directory to a new specified path\n");
+        }
+
+        private void _HelpFileDeleteDirectory_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The Delete [Directory] button will allow you to delete the currently selected directory\n");
+        }
+
+        private void _HelpFileUploadFile_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The Upload [File] button will allow you to select a file from your computer to upload to the currently selected directory\n");
+        }
+
+        private void _HelpFileDownloadFile_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The Download [File] button will allow you to download the currently selected file to a location on your computer\n");
+        }
+
+        private void _HelpFileRenameFile_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The Rename [File] button will allow you rename the currently selected file to a specified name\n");
+        }
+
+        private void _HelpFileCopyFile_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The Copy [File] button will record the currently selected file\n");
+        }
+
+        private void _HelpFilePasteFile_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The Paste [File] button will copy the file stored using the Copy [File] button to the given directory\n");
+        }
+
+        private void _HelpFileDetailsFile_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The Details [File] button will display significantly more details about the currently selected file than currently displayed\n");
+        }
+
+        private void _HelpFileDeleteFile_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The Delete [File] button will delete the currently selected file\n");
+        }
+
+        private void _HelpFileAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The Add User button will allow you to add a User with specified attributes\n {Username} is a mandatory field and is what the user will login using\n {E-Mail} is a mandatory field and is how the server will notify the user of their new account as well how the server will communicate with them\n {Home} is a mandatory field and it is the {Directory, File} that you want to give the user access to\n {List} is defaultly false and it is the ability for the user to see other files within a directory\n {Read} is defaultly false and it is the ability to download and therefore read a file which they have access to\n{Write} is defaultly false and it is the ability for the user to upload files to the given {home} directory\n{Delete} is defaultly false and it is the ability for the user to delete files which they have access to\n{Password} is defaultly auto-generated by the server and emailed to the user but a custom one can be entered\n{Name} is defaultly the same as the username but a custom one can be entered\n{Role} is defaultly User but a different role can be chosen\n{Expiration} is defaultly never but a custom date (MM/DD/YYYY) can be choosen for that user\n{Group(s)} is defaultly none but a user can be a member of as many groups as you want\nUnderneath Edit User you can tailor a user's permissions much more specifically than through Add User\n");
+        }
+
+        private void _HelpFileEditUser_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The Edit User button will allow you to set specific permissions for an specified user and {Directory, File}\n{List} is defaultly false and it is the ability for the user to see other files within a directory\n {Read} is defaultly false and it is the ability to download and therefore read a file which they have access to\n{Write} is defaultly false and it is the ability for the user to upload files to the given {home} directory\n{Delete} is defaultly false and it is the ability for the user to delete files which they have access to\n");
+        }
+
+        private void _HelpFileViewUser_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The View User button is similar to Edit User but will display what permissions the user has for a given directory and allow them to be modified");
+        }
+
+        private void _HelpFileAddGroup_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Warning: Intelligent Client is not able to add Users to Groups once the group is created\n The Add Group button will allow you to create a group with a specific name and specified members\nPermissions for the group can be set using the View Group button");
+
+        }
+
+        private void _HelpFileEditGroup_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("During development we were unable to find a way to add users to groups post-creation so the Edit Group button displays a message stating that it does nothing");
+        }
+
+        private void _HelpFileViewGroup_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The View Group button will allow you to set specific permissions for a selected group and {Directory, File} as well as display what the current settings are\n{List} is defaultly false and it is the ability for the user to see other files within a directory\n {Read} is defaultly false and it is the ability to download and therefore read a file which they have access to\n{Write} is defaultly false and it is the ability for the user to upload files to the given {home} directory\n{Delete} is defaultly false and it is the ability for the user to delete files which they have access to\n");
+
+        }
+
+        private void _HelpTaskRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The Refresh Task button refreshes the status of the displayed tasks\n");
+        }
+
+        #endregion
+
+
+        private void _Authors_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The two programmers for this project are\nJeffrey Carter - UI & Scope\nKyle Dooley - Connectivity\nThe source code and License for this project can be found on github [https://github.com/Carterj3/SmartFile]");
+        }
+
+        private void _Version_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Version 1.0\n A Changelog can be found on github [https://github.com/Carterj3/SmartFile]");
         }
         #endregion
 
@@ -342,7 +471,7 @@ namespace Client
 
         internal void UploadFile(string filename)
         {
-            MessageBox.Show("Uploading :[" + filename + "]");
+            MessageBox.Show("Uploading :[" + filename + "] to ["+listBox.SelectedItem+"]");
         }
 
         internal void DownloadFile(string filename)
@@ -390,7 +519,48 @@ namespace Client
             MessageBox.Show(String.Format("Group:{0}\nDirectory:{1}\nRead:{2}\nList:{3}\nWrite:{4}\nDelete:{5}", groupName, directory, read, list, write, delete));
         }
 
+        private void refreshTasks()
+        {
+            MessageBox.Show("Refreshing tasks");
+        }
+
         #endregion
+
+        private void Ribbon_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            directory.Clear();
+
+            if (Ribbon.SelectedItem.Equals(FileTab))
+            {
+                directory.Add("File1");
+                directory.Add("Folder Name");
+                directory.Add("Folder Name\\File2");
+                directory.Add("Folder Name\\File3");
+                directory.Add("Emtpy Folder");
+            }
+            else if (Ribbon.SelectedItem.Equals(TaskTab))
+            {
+                directory.Add("[Move] [File2] From [\\] to [\\Folder Name] : 100%");
+            }
+            else if (Ribbon.SelectedItem.Equals(AccessTab))
+            {
+                directory.Add("File1");
+                directory.Add("Folder Name");
+                directory.Add("Folder Name\\File2");
+                directory.Add("Folder Name\\File3");
+                directory.Add("Emtpy Folder");
+            }
+            else
+            {
+
+            }
+        }
+
+
+
+
+
 
 
     }

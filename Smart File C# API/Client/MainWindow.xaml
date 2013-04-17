@@ -5,13 +5,12 @@
         Title="Intelligent Client"
         x:Name="RibbonWindow"
         Width="770" Height="600"
-        MaxWidth="770"
         MinWidth="350" MinHeight="500"
         Closing="Window_Closing"
         Icon="IC.ico">
 
     <Grid>
-        <ribbon:Ribbon x:Name="Ribbon" Title="Ribbon Title">
+        <ribbon:Ribbon x:Name="Ribbon" SelectionChanged="Ribbon_SelectionChanged">
             <ribbon:Ribbon.ApplicationMenu>
                 <ribbon:RibbonApplicationMenu>
                     <ribbon:RibbonApplicationMenuItem
@@ -169,13 +168,30 @@
             </ribbon:RibbonTab>
             <ribbon:RibbonTab x:Name="TaskTab" 
                               Header="Tasks">
+                <ribbon:RibbonGroup
+                    Header="Tasks">
+                    <ribbon:RibbonMenuItem
+                        Header="Refresh"
+                        Name="_TaskRefresh"
+                        Click="_TaskRefresh_Click">
+                    </ribbon:RibbonMenuItem>
+
+                </ribbon:RibbonGroup>
 
             </ribbon:RibbonTab>
             <ribbon:RibbonTab x:Name="AccessTab" 
                               Header="Access">
                 <ribbon:RibbonGroup
-                    Header="User Access"
-                >
+                    Header="File">
+                    <ribbon:RibbonMenuItem
+                        Header="View Permissions"
+                        Name="_AccessViewPermissions"
+                        Click="_AccessViewPermissions_Click">
+                        
+                    </ribbon:RibbonMenuItem>
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup
+                    Header="User Access">
 
                     <ribbon:RibbonMenuItem
                     Header="Add User"
@@ -220,14 +236,190 @@
             <ribbon:RibbonTab x:Name="HelpTab" 
                               Header="Help">
 
+                <ribbon:RibbonGroup
+                    Header="File Tab">
+
+                    <ribbon:RibbonGroup
+                    Header="Folder">
+                        <ribbon:RibbonMenuItem
+                        Header="New Directory"
+                        Name="_HelpFileNewDirectory"
+                        Click="_HelpFileNewDirectory_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="Rename"
+                        Name="_HelpFileRename"
+                        Click="_HelpFileRename_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="Move"
+                        Name="_HelpFileMoveDirectory"
+                        Click="_HelpFileMoveDirectory_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="Delete"
+                        Name="_HelpFileDeleteDirectory"
+                            Click="_HelpFileDeleteDirectory_Click">
+                        </ribbon:RibbonMenuItem>
+
+                    </ribbon:RibbonGroup>
+                    <ribbon:RibbonGroup
+                    Header="File">
+                        <ribbon:RibbonMenuItem
+                        Header="Upload"
+                        Name="_HelpFileUploadFile"
+                        Click="_HelpFileUploadFile_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="Download"
+                        Name="_HelpFileDownloadFile"
+                        Click="_HelpFileDownloadFile_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="Rename"
+                        Name="_HelpFileRenameFile"
+                        Click="_HelpFileRenameFile_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="Copy"
+                        Name="_HelpFileCopyFile"
+                        Click="_HelpFileCopyFile_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="Paste"
+                        Name="_HelpFilePasteFile"
+                        Click="_HelpFilePasteFile_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="Details"
+                        Name="_HelpFileDetailsFile"
+                        Click="_HelpFileDetailsFile_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="Delete"
+                        Name="_HelpFileDeleteFile"
+                        Click="_HelpFileDeleteFile_Click">
+                        </ribbon:RibbonMenuItem>
+
+
+                    </ribbon:RibbonGroup>
+                    <ribbon:RibbonGroup
+                    Header="User Access">
+                        <ribbon:RibbonMenuItem
+                        Header="Add User"
+                        Name="_HelpFileAddUser"
+                        Click="_HelpFileAddUser_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="Edit User"
+                        Name="_HelpFileEditUser"
+                        Click="_HelpFileEditUser_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="View User"
+                        Name="_HelpFileViewUser"
+                        Click="_HelpFileViewUser_Click">
+                        </ribbon:RibbonMenuItem>
+                        
+                    </ribbon:RibbonGroup>
+                    <ribbon:RibbonGroup
+                    Header="Group Access">
+                        <ribbon:RibbonMenuItem
+                        Header="Add User"
+                        Name="_HelpFileAddGroup"
+                            Click="_HelpFileAddGroup_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="Edit User"
+                        Name="_HelpFileEditGroup"
+                            Click="_HelpFileEditGroup_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="View User"
+                        Name="_HelpFileViewGroup"
+                            Click="_HelpFileViewGroup_Click">
+                        </ribbon:RibbonMenuItem>
+
+
+                    </ribbon:RibbonGroup>
+
+
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup
+                    Header="Tasks Tab">
+                    <ribbon:RibbonGroup
+                    Header="Tasks">
+                        <ribbon:RibbonMenuItem
+                        Header="Refresh"
+                        Name="_HelpTaskRefresh"
+                        Click="_HelpTaskRefresh_Click">
+                        </ribbon:RibbonMenuItem>
+
+                    </ribbon:RibbonGroup>
+
+
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup
+                    Header="Access Tab">
+                    <ribbon:RibbonGroup
+                    Header="User Access">
+                        <ribbon:RibbonMenuItem
+                        Header="Add User"
+                        Click="_HelpFileAddUser_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="Edit User"
+                        Click="_HelpFileEditUser_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="View User"
+                        Click="_HelpFileViewUser_Click">
+                        </ribbon:RibbonMenuItem>
+
+                    </ribbon:RibbonGroup>
+                    <ribbon:RibbonGroup
+                    Header="Group Access">
+                        <ribbon:RibbonMenuItem
+                        Header="Add User"
+                            Click="_HelpFileAddGroup_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="Edit User"
+                            Click="_HelpFileEditGroup_Click">
+                        </ribbon:RibbonMenuItem>
+                        <ribbon:RibbonMenuItem
+                        Header="View User"
+                            Click="_HelpFileViewGroup_Click">
+                        </ribbon:RibbonMenuItem>
+
+
+                    </ribbon:RibbonGroup>
+
+                </ribbon:RibbonGroup>
+        
             </ribbon:RibbonTab>
             <ribbon:RibbonTab x:Name="AboutTab" 
                               Header="About">
+                <ribbon:RibbonGroup
+                    Header="About">
 
+
+                
+                <ribbon:RibbonMenuItem
+                    Header="Authors"
+                    Name="_Authors"
+                    Click="_Authors_Click">
+                </ribbon:RibbonMenuItem>
+                <ribbon:RibbonMenuItem
+                    Header="Version"
+                    Name="_Version"
+                    Click="_Version_Click">
+                </ribbon:RibbonMenuItem>
+                </ribbon:RibbonGroup>
             </ribbon:RibbonTab>
         </ribbon:Ribbon>
         <DockPanel x:Name="dockPanel">
-            <ListBox Margin="0,154,0,10" Width="732"
+            <ListBox Margin="5,150,5,5" 
                      Name="listBox"
                      SelectionMode="Single"
                      ItemsSource="{Binding}"
