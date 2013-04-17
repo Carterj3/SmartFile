@@ -117,3 +117,11 @@ C:\Users\Carterj3-Tower\Desktop\SmartFile\Smart File C# API\Client\obj\Debug\Cli
 C:\Users\Carterj3-Tower\Desktop\SmartFile\Smart File C# API\Client\obj\Debug\Client.g.resources
 C:\Users\Carterj3-Tower\Desktop\SmartFile\Smart File C# API\Client\obj\Debug\Client.Properties.Resources.resources
 C:\Users\Carterj3-Tower\Desktop\SmartFile\Smart File C# API\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\EditUser.baml
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\EditUser.g.cs
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\ViewUser.baml
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\ViewUser.g.cs
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\AddGroup.baml
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\AddGroup.g.cs
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\ViewGroup.baml
+C:\Users\Carterj3-Tower\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\ViewGroup.g.cs

@@ -1,32 +1,82 @@
 ﻿<Window x:Class="Client.AddUser"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Add User" Height="150" Width="350"
+        Title="Add User" Height="522" Width="501"
         Closing="Window_Closing">
     <Grid>
-        <Label Margin="10,10,261,78">
-            Username:
-        </Label>
-        <TextBox Margin="86,10,10,78" Name="_Username">
-            username
-        </TextBox>
-        <CheckBox Margin="10,47,272,51" Name="_List">
+        <Label Margin="10,10,384,442" Content="Username*:"/>
+        <TextBox Margin="122,10,119,442" x:Name="_Username" Text="username"/>
+        <CheckBox Margin="10,145,423,314" Name="_List">
             List?
         </CheckBox>
-        <CheckBox Margin="75,47,209,51" Name="_Read">
-            Read?
+        <CheckBox Margin="75,145,300,314" Name="_Read">
+            Read(download)?
         </CheckBox>
-        <CheckBox Margin="188,47,87,51" Name="_Write">
-            Write?
+        <CheckBox Margin="204,145,187,314" Name="_Write">
+            Write(upload)?
         </CheckBox>
-        <CheckBox Margin="260,47,10,51" Name="_Delete">
+        <CheckBox Margin="311,145,114,314" Name="_Delete">
             Delete?
         </CheckBox>
-        <Button Margin="10,74,244,10" Click="AddUser_Click">
+        <Button Margin="10,450,407,10" Click="AddUser_Click">
             Add User
         </Button>
-        <Button Margin="103,74,151,10" Click="Cancel_Click">
+        <Button Margin="94,450,300,10" Click="Cancel_Click">
             Cancel
+        </Button>
+        <Label Margin="10,228,384,224">
+            Name
+        </Label>
+        <Label Margin="10,55,384,397">
+            E-Mail*
+        </Label>
+        <Label Margin="10,100,384,352">
+            Home*
+        </Label>
+        <Label Margin="10,183,384,269">
+            Password
+        </Label>
+        <Label Margin="10,318,384,134" >
+            Expiration
+        </Label>
+        <Label Margin="10,273,384,179" >
+            Role
+        </Label>
+        <Label Margin="10,363,384,89">
+            Group(s)
+        </Label>
+        <Label Margin="10,408,10,47">
+            Items with * are mandatory, the rest are set to their default values
+        </Label>
+        <TextBox Margin="122,55,119,397" Name="_Email">
+            E-Mail
+        </TextBox>
+        <TextBox Margin="122,100,119,352" Name="_Home">
+            /
+        </TextBox>
+        <TextBox Margin="122,183,119,269" Name="_Password">
+            null
+        </TextBox>
+        <TextBox Margin="122,228,119,224" Name="_Name">
+            null
+        </TextBox>
+        <TextBox Margin="122,320,119,132" Name="_Expiration">
+            MM/DD/YYYY
+        </TextBox>
+        <ComboBox Margin="122,273,119,179" Name="_Role">
+            
+        </ComboBox>
+        <ComboBox Margin="122,363,269,84" Name="_GroupAdd">
+            
+        </ComboBox>
+        <Button Margin="229,363,216,84" Name="AddGroup" Click="AddGroup_Click">
+            Add
+        </Button>
+        <ComboBox Margin="282,363,109,84" Name="_GroupRemove">
+
+        </ComboBox>
+        <Button Margin="389,363,42,84" Name="RemoveGroup" Click="RemoveGroup_Click">
+            Remove
         </Button>
     </Grid>
 </Window>

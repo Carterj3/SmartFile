@@ -138,9 +138,9 @@
                     </ribbon:RibbonMenuItem>
 
                     <ribbon:RibbonMenuItem
-                    Header="Remove User"
-                    Name="_RemoveUser"
-                    Click="_RemoveUser_Click">
+                    Header="ViewUser"
+                    Name="_ViewUser"
+                    Click="_ViewUser_Click">
                     </ribbon:RibbonMenuItem>
                 </ribbon:RibbonGroup>
                 <ribbon:RibbonGroup
@@ -159,9 +159,9 @@
                     </ribbon:RibbonMenuItem>
 
                     <ribbon:RibbonMenuItem
-                    Header="Remove Group"
-                    Name="_RemoveGroup"
-                    Click="_RemoveGroup_Click">
+                    Header="View Group"
+                    Name="_ViewGroup"
+                    Click="_ViewGroup_Click">
                     </ribbon:RibbonMenuItem>
                 </ribbon:RibbonGroup>
 
@@ -190,9 +190,9 @@
                     </ribbon:RibbonMenuItem>
 
                     <ribbon:RibbonMenuItem
-                    Header="Remove User"
-                    Name="RemoveUser"
-                    Click="RemoveUser_Click">
+                    Header="View User"
+                    Name="ViewUser"
+                    Click="ViewUser_Click">
                     </ribbon:RibbonMenuItem>
                 </ribbon:RibbonGroup>
                 <ribbon:RibbonGroup
@@ -211,9 +211,9 @@
                     </ribbon:RibbonMenuItem>
 
                     <ribbon:RibbonMenuItem
-                    Header="Remove Group"
-                    Name="RemoveGroup"
-                    Click="RemoveGroup_Click">
+                    Header="View Group"
+                    Name="ViewGroup"
+                    Click="ViewGroup_Click">
                     </ribbon:RibbonMenuItem>
                 </ribbon:RibbonGroup>
             </ribbon:RibbonTab>

@@ -1,0 +1,34 @@
+﻿<Window x:Class="Client.AddGroup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddGroup" Height="274" Width="300"
+        Closing="Window_Closing">
+    <Grid>
+        <Label Margin="10,10,187,200">
+            Group Name:
+        </Label>
+        <TextBox Name="_GroupName" Margin="120,12,10,200" >
+            Name
+        </TextBox>
+        <Button Margin="10,69,187,144" Name="_Add" Click="_Add_Click">
+            Add User
+        </Button>
+        <ComboBox Margin="120,69,10,144" Name="_AddUser" >
+
+        </ComboBox>
+        <Button Margin="10,131,187,83" Name="_Remove" Click="_Remove_Click">
+            Remove User
+        </Button>
+        <ComboBox Margin="120,131,10,83" Name="_RemoveUser">
+
+        </ComboBox>
+
+        <Button Margin="10,204,187,10" Name="_CreateGroup" Click="_CreateGroup_Click">
+            Create Group
+        </Button>
+
+        <Button Margin="120,204,70,10" Name="_Cancel" Click="_Cancel_Click">
+            Cancel
+        </Button>
+    </Grid>
+</Window>

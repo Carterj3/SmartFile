@@ -44,6 +44,10 @@ namespace Client
         RenameDirectory tempRenameDirectory = null;
         MoveDirectory tempMoveDirectory = null;
         AddUser tempAddUser = null;
+        EditUser tempEditUser = null;
+        ViewUser tempViewUser = null;
+        AddGroup tempAddGroup = null;
+        ViewGroup tempViewGroup = null;
 
         public MainWindow()
         {
@@ -54,18 +58,22 @@ namespace Client
             tempRenameDirectory = new RenameDirectory(this);
             tempMoveDirectory = new MoveDirectory(this);
             tempAddUser = new Client.AddUser(this);
+            tempEditUser = new Client.EditUser(this);
+            tempViewUser = new Client.ViewUser(this);
+            tempAddGroup = new Client.AddGroup(this);
+            tempViewGroup = new Client.ViewGroup(this);
             #endregion
             #region Initialize Lists of ribbonButtons
 
             filesItems = new Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[17]
             {NewDirectory,Rename, Move,Delete,
             Upload, Download, _Rename,Copy,Paste,Details,_Delete,
-            _AddUser,_EditUser,_RemoveUser,
-            _AddGroup,_EditGroup,_RemoveGroup};
+            _AddUser,_EditUser,_ViewUser,
+            _AddGroup,_EditGroup,_ViewGroup};
 
             accessItems = new Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[6]
-            {AddUser,EditUser,RemoveUser,
-            AddGroup,EditGroup,RemoveGroup};
+            {AddUser,EditUser,ViewUser,
+            AddGroup,EditGroup,ViewGroup};
 
             helpItems = new Microsoft.Windows.Controls.Ribbon.RibbonMenuItem[0];
 
@@ -239,17 +247,17 @@ namespace Client
 
         private void _EditUser_Click(object sender, RoutedEventArgs e)
         {
-
+            openWindow(tempEditUser);
         }
 
-        private void _RemoveUser_Click(object sender, RoutedEventArgs e)
+        private void _ViewUser_Click(object sender, RoutedEventArgs e)
         {
-
+            openWindow(tempViewUser);
         }
 
         private void _AddGroup_Click(object sender, RoutedEventArgs e)
         {
-
+            openWindow(tempAddGroup);
         }
 
         private void _EditGroup_Click(object sender, RoutedEventArgs e)
@@ -257,10 +265,11 @@ namespace Client
 
         }
 
-        private void _RemoveGroup_Click(object sender, RoutedEventArgs e)
+        private void _ViewGroup_Click(object sender, RoutedEventArgs e)
         {
-
+            openWindow(tempViewGroup);
         }
+
 
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
@@ -272,7 +281,7 @@ namespace Client
 
         }
 
-        private void RemoveUser_Click(object sender, RoutedEventArgs e)
+        private void ViewUser_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -287,7 +296,7 @@ namespace Client
 
         }
 
-        private void RemoveGroup_Click(object sender, RoutedEventArgs e)
+        private void ViewGroup_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -296,66 +305,92 @@ namespace Client
         #region PopUp Window Connectivity
         internal void connect(string key, string password)
         {
-            client = null;
-            client = new SmartFile.ClientHandler(key, password);
-            client.getDirectory(currentPath);
+
+            try
+            {
+                client = null;
+                client = new SmartFile.ClientHandler(key, password);
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(String.Format("An Error Occured but has been caught\nLocation:0000\n{0}", e.Message));
+            }
 
         }
 
         internal void createDirectory(string name)
         {
-            Console.WriteLine("Create Directory [" + currentPath + "] / [" + name + "]");
+            MessageBox.Show("Create Directory [" + currentPath + "] / [" + name + "]");
         }
 
         internal void renameDirectory(string name)
         {
 
-            Console.WriteLine("Renaming Directory [" + listBox.SelectedItem + "] to [" + name + "]");
+            MessageBox.Show("Renaming Directory [" + listBox.SelectedItem + "] to [" + name + "]");
         }
 
         internal void MoveDirectory(string name)
         {
-            Console.WriteLine("Moved Directory [" + currentPath + "] / [" + listBox.SelectedItem + "] to [" + name + "]");
+            MessageBox.Show("Moved Directory [" + currentPath + "] / [" + listBox.SelectedItem + "] to [" + name + "]");
         }
 
         internal void deleteDirectory()
         {
-            Console.WriteLine("Deleting Directory [" + currentPath + "] / [" + listBox.SelectedItem + "]");
+            MessageBox.Show("Deleting Directory [" + currentPath + "] / [" + listBox.SelectedItem + "]");
         }
 
         internal void UploadFile(string filename)
         {
-            Console.WriteLine("Uploading :[" + filename + "]");
+            MessageBox.Show("Uploading :[" + filename + "]");
         }
 
         internal void DownloadFile(string filename)
         {
-            Console.WriteLine("Downloading [" + listBox.SelectedItem + "] to [" + filename + "]");
+            MessageBox.Show("Downloading [" + listBox.SelectedItem + "] to [" + filename + "]");
         }
 
         internal void copyDirectory()
         {
-            Console.WriteLine("Copying Directory [" + currentPath + "] / [" + listBox.SelectedItem + "]");
+            MessageBox.Show("Copying Directory [" + currentPath + "] / [" + listBox.SelectedItem + "]");
         }
 
         internal void pasteDirectory()
         {
-            Console.WriteLine("Pasting to Directory [" + currentPath + "] / [" + listBox.SelectedItem + "]");
+            MessageBox.Show("Pasting to Directory [" + currentPath + "] / [" + listBox.SelectedItem + "]");
         }
 
         private void details()
         {
-            Console.WriteLine("Getting details on [" + currentPath + "] / [" + listBox.SelectedItem + "]");
+            MessageBox.Show("Getting details on [" + currentPath + "] / [" + listBox.SelectedItem + "]");
         }
 
         internal void addUser(string user, bool? list, bool? read, bool? write, bool? delete)
         {
-            Console.WriteLine("Add User :[" + user + "] with List?[" + list + "] Read?[" + read + "] Write?[" + write + "] Delete?[" + delete + "]");
+            MessageBox.Show("Add User :[" + user + "] with List?[" + list + "] Read?[" + read + "] Write?[" + write + "] Delete?[" + delete + "]");
+        }
+
+        internal void editUser(string username, bool read, bool list, bool write, bool delete, string directory)
+        {
+            MessageBox.Show(String.Format("Username:{0}\nRead?:{1}\nList?:{2}\nWrite:{3}\nDelete:{4}\nDirectory:{5}\n Edit User", username, read, list, write, delete, directory));
+        }
+
+        internal void addGroup(string groupName, string[] groupMembers)
+        {
+            String tempList = "";
+            foreach (String s in groupMembers)
+            {
+                tempList += s + "\n";
+            }
+            MessageBox.Show(String.Format("GroupName:{0}\nMembers:{1}", groupName, tempList));
+        }
+
+        internal void editGroup(string groupName, string directory, bool read, bool list, bool write, bool delete)
+        {
+            MessageBox.Show(String.Format("Group:{0}\nDirectory:{1}\nRead:{2}\nList:{3}\nWrite:{4}\nDelete:{5}", groupName, directory, read, list, write, delete));
         }
 
         #endregion
-
-
 
 
     }
