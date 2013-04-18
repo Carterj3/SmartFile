@@ -531,25 +531,32 @@ namespace Client
 
             directory.Clear();
 
-            if (Ribbon.SelectedItem.Equals(FileTab))
+            if (client == null)
             {
-                directory.Add("File1");
-                directory.Add("Folder Name");
-                directory.Add("Folder Name\\File2");
-                directory.Add("Folder Name\\File3");
-                directory.Add("Emtpy Folder");
+                return;
+            }
+
+            if (Ribbon.SelectedItem.Equals(FileTab) || Ribbon.SelectedItem.Equals(AccessTab))
+            {
+                try
+                {
+                    directory.Add("Refreshing");
+                    ArrayList temp = client.getDirectory("/");
+                    directory.Clear();
+                    foreach (String s in temp)
+                    {
+                        directory.Add(s);
+                    }
+                }
+                catch (Exception e1)
+                {
+                    MessageBox.Show("E000 " + e1.Message);
+                    // DO Nothing
+                }
             }
             else if (Ribbon.SelectedItem.Equals(TaskTab))
             {
                 directory.Add("[Move] [File2] From [\\] to [\\Folder Name] : 100%");
-            }
-            else if (Ribbon.SelectedItem.Equals(AccessTab))
-            {
-                directory.Add("File1");
-                directory.Add("Folder Name");
-                directory.Add("Folder Name\\File2");
-                directory.Add("Folder Name\\File3");
-                directory.Add("Emtpy Folder");
             }
             else
             {

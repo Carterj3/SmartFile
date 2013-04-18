@@ -1,23 +1,27 @@
 ﻿
 using System;
 using System.Collections;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace SmartFile
 {
     public class ClientHandler
     {
         private BasicClient client;
+        private WebClient c;
         public static string YodelKey = "MkWmIqdJNKrrUYzbDGIacXmtrLCr4b";
         public static string YodelPassword = "An4Qbqc6AxjruGHgv2w5HSENZqcqzL";
 
+        private string address = "app.smartfile.com/api/2/";
         private string key;
         private string password;
-
 
         private string copiedPath = "";
 
@@ -27,70 +31,79 @@ namespace SmartFile
             this.password = password;
 
             client = new BasicClient(key, password);
-
+            c = new WebClient();
+            c.Headers["Authorization"] = "Basic " +
+                Convert.ToBase64String(Encoding.Default.GetBytes(this.key + ":" + this.password));
         }
+
         // Returns the name of every file and directory within a given path (directory)
         // Append F to the name if its a file
         // Append D to the file if its a directory
-        public String[] getDirectory(String directory)
+
+        public ArrayList getDirectory(String directory)
         {
-            Stream r = client.Get("path/info", directory).GetResponseStream();
-
-            Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
-            StreamReader readStream = new StreamReader(r, encode);
-            StringBuilder s = new StringBuilder();
-            char[] read = new char[256];
-            int count = readStream.Read(read, 0, 256);
-
-            while (count > 0)
+            string s = address + "path/info/" + directory + "?children=on&format=xml";
+            string res = c.DownloadString("https://" + s.Replace("//", "/"));
+            XDocument doc = XDocument.Parse(res);
+            var paths = from p in doc.Descendants("path")
+                        select p.Value;
+            ArrayList result = new ArrayList();
+            foreach (string path in paths)
             {
-                s.Append(read);
-                count = readStream.Read(read, 0, 256);
+                
+                if (!path.Equals(directory.Replace("//","/")))
+                {
+                    result.Add(path);
+                }
             }
-
-            string str = s.ToString();
-            return null;
+            foreach (string path in paths)
+            {
+                foreach (string el in getDirectory(directory + path))
+                    result.Add(el);
+            }
+            return result;
         }
 
         // Creates a new folder in the given directory with the given foldername
-        public Boolean newFolder(String directory, String folderName)
+        public Boolean newFolder(String newPath)
         {
-            Hashtable h = new Hashtable();
-            h.Add(directory, folderName);
-            Stream r = client.Post("path/info", null, h).GetResponseStream();
+            var data = new NameValueCollection();
+            data["path"] = newPath;
+            string s = address + "path/oper/mkdir/" + newPath + "/";
+            c.UploadValues("https://" + s.Replace("//", "/"), "POST", data);
 
-            Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
-            StreamReader readStream = new StreamReader(r, encode);
-            StringBuilder s = new StringBuilder();
-            char[] read = new char[256];
-            int count = readStream.Read(read, 0, 256);
-            while (count > 0)
-            {
-                s.Append(read);
-                count = readStream.Read(read, 0, 256);
-            }
-            string str = s.ToString();
+
             return false;
         }
 
         // Renames the given directory located at the oldPath to the newPath
         // From my understanding files count as directory so doing this on say /home/Text.txt would have the same effect on /home/Folder
-        public Boolean rename(String oldPath, String newPath)
+        public Boolean rename(String from, String to)
         {
+            var data = new NameValueCollection();
+            data["src"] = from.Replace("//", "/");
+            data["dst"] = to.Replace("//", "/");
+            string s = address + "path/oper/rename/";
+            c.UploadValues("https://" + s, "POST", data);
             return false;
         }
 
         // Moves the given directory/file to the new path
         // This does the instant move
-        public Boolean move(String fromPath, String toPath)
+        public Boolean move(String from, String to)
         {
+            var data = new NameValueCollection();
+            data["src"] = from.Replace("//", "/");
+            data["dst"] = to.Replace("//", "/");
+            string s = address + "path/oper/move/";
+            c.UploadValues("https://" + s, "POST", data);
             return false;
         }
 
         // Just stores the given path
         public Boolean copy(String fromPath)
         {
-            copiedPath = "fromPath";
+            copiedPath = fromPath;
             return true;
         }
 
@@ -104,6 +117,18 @@ namespace SmartFile
         // Deletes given folder/file
         public Boolean remove(String path)
         {
+            try
+            {
+                var data = new System.Collections.Specialized.NameValueCollection();
+                data["path"] = path.Replace("//", "/");
+                string s = address + "path/oper/remove/";
+                c.UploadValues("https://" + s, "POST", data);
+            }
+            catch (Exception e)
+            {
+
+            }
+
             return false;
         }
 
@@ -131,7 +156,7 @@ namespace SmartFile
             return false;
         }
 
-        
+
         public Boolean modifyGroup(String user, SmartFile.Permission permissions)
         {
             return false;
@@ -143,6 +168,8 @@ namespace SmartFile
         // Mainly meant to be used in co-junction with google document viewer
         public String tempLink(String path)
         {
+
+
             return null;
         }
 
