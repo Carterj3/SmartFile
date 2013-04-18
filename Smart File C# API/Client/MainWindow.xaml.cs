@@ -298,8 +298,8 @@ namespace Client
         {
             client = null;
             client = new SmartFile.ClientHandler(key, password);
-            client.getDirectory("");
-            //lient.newFolder("NEW");
+            //ArrayList s = client.getDirectory("/");
+            //client.newFolder("NEW");
             //client.remove("/Test/NEW");
             //client.move("NEW", "JEFF");
             //client.rename("NEW", "JEFF");

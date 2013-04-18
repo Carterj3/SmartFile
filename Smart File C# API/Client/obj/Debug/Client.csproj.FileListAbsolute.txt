@@ -118,17 +118,10 @@ C:\Users\Carterj3-Tower\Desktop\SmartFile\Smart File C# API\Client\obj\Debug\Cli
 C:\Users\Carterj3-Tower\Desktop\SmartFile\Smart File C# API\Client\obj\Debug\Client.Properties.Resources.resources
 C:\Users\Carterj3-Tower\Desktop\SmartFile\Smart File C# API\Client\obj\Debug\Client.csproj.GenerateResource.Cache
 C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\bin\Debug\Client.exe.config
-C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\Client.exe
-C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\Client.pdb
 C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\bin\Debug\Client.exe
 C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\bin\Debug\Client.pdb
 C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\bin\Debug\SmartFileAPI.dll
-C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\bin\Debug\Microsoft.Windows.Shell.dll
 C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\bin\Debug\SmartFileAPI.pdb
-C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\bin\Debug\RibbonControlsLibrary.pdb
-C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\bin\Debug\RibbonControlsLibrary.xml
-C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\bin\Debug\Microsoft.Windows.Shell.pdb
-C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\bin\Debug\Microsoft.Windows.Shell.xml
 C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\AddUser.baml
 C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\PopupWindows\Connect.baml
@@ -147,3 +140,5 @@ C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\
 C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\Client.g.resources
 C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\Client.Properties.Resources.resources
 C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\Client.exe
+C:\Users\dooleykh\Documents\GitHub\SmartFile\Smart File C# API\Client\obj\Debug\Client.pdb

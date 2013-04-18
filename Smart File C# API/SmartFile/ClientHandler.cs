@@ -41,7 +41,7 @@ namespace SmartFile
         // Append F to the name if its a file
         // Append D to the file if its a directory
 
-        public String[] getDirectory(String directory)
+        public ArrayList getDirectory(String directory)
         {
             string s = address + "path/info/" + directory + "?children=on&format=xml";
             string res = c.DownloadString("https://" + s.Replace("//", "/"));
@@ -50,34 +50,57 @@ namespace SmartFile
                        select p.Value;
             ArrayList result = new ArrayList();
             foreach (string path in paths)
-            {
-                result.Add(path);
+            {   
+                if (!path.Equals(directory))
+                {
+                    result.Add(path);
+                }
             }
-            return (string[]) result.ToArray();
+            foreach (string path in paths)
+            {   
+                foreach (string el in getDirectory(path))
+                    result.Add(el);
+            }
+
+            return result;
         }
 
         // Creates a new folder in the given directory with the given foldername
         public Boolean newFolder(String newPath)
         {
-            var data = new NameValueCollection();
-            data["path"] = newPath;
-            string s = address + "path/oper/mkdir/" + newPath + "/";
-            c.UploadValues("https://" + s.Replace("//", "/"), "POST", data);
+            try
+            {
+                var data = new NameValueCollection();
+                data["path"] = newPath;
+                string s = address + "path/oper/mkdir/" + newPath + "/";
+                c.UploadValues("https://" + s.Replace("//", "/"), "POST", data);
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
 
-            
-            return false;
+            return true;
         }
 
         // Renames the given directory located at the oldPath to the newPath
         // From my understanding files count as directory so doing this on say /home/Text.txt would have the same effect on /home/Folder
         public Boolean rename(String from, String to)
         {
-            var data = new NameValueCollection();
-            data["src"] = from.Replace("//", "/");
-            data["dst"] = to.Replace("//", "/");
-            string s = address + "path/oper/rename/";
-            c.UploadValues("https://" + s, "POST", data);
-            return false;
+            try
+            {
+                var data = new NameValueCollection();
+                data["src"] = from.Replace("//", "/");
+                data["dst"] = to.Replace("//", "/");
+                string s = address + "path/oper/rename/";
+                c.UploadValues("https://" + s, "POST", data);
+
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
         }
 
         // Moves the given directory/file to the new path
