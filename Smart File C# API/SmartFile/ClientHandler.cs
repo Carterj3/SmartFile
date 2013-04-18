@@ -1,11 +1,14 @@
 ﻿
 using System;
 using System.Collections;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace SmartFile
 {
@@ -40,20 +43,28 @@ namespace SmartFile
 
         public String[] getDirectory(String directory)
         {
-            string s = address + "path/info/" + directory + "/";
+            string s = address + "path/info/" + directory + "?children=on&format=xml";
             string res = c.DownloadString("https://" + s.Replace("//", "/"));
-            
-            return null;
+            XDocument doc = XDocument.Parse(res);
+            var paths = from p in doc.Descendants("path")
+                       select p.Value;
+            ArrayList result = new ArrayList();
+            foreach (string path in paths)
+            {
+                result.Add(path);
+            }
+            return (string[]) result.ToArray();
         }
 
         // Creates a new folder in the given directory with the given foldername
         public Boolean newFolder(String newPath)
         {
-            var data = new System.Collections.Specialized.NameValueCollection();
+            var data = new NameValueCollection();
             data["path"] = newPath;
             string s = address + "path/oper/mkdir/" + newPath + "/";
             c.UploadValues("https://" + s.Replace("//", "/"), "POST", data);
 
+            
             return false;
         }
 
@@ -61,7 +72,7 @@ namespace SmartFile
         // From my understanding files count as directory so doing this on say /home/Text.txt would have the same effect on /home/Folder
         public Boolean rename(String from, String to)
         {
-            var data = new System.Collections.Specialized.NameValueCollection();
+            var data = new NameValueCollection();
             data["src"] = from.Replace("//", "/");
             data["dst"] = to.Replace("//", "/");
             string s = address + "path/oper/rename/";
@@ -73,7 +84,7 @@ namespace SmartFile
         // This does the instant move
         public Boolean move(String from, String to)
         {
-            var data = new System.Collections.Specialized.NameValueCollection();
+            var data = new NameValueCollection();
             data["src"] = from.Replace("//", "/");
             data["dst"] = to.Replace("//", "/");
             string s = address + "path/oper/move/";
@@ -98,10 +109,17 @@ namespace SmartFile
         // Deletes given folder/file
         public Boolean remove(String path)
         {
-            var data = new System.Collections.Specialized.NameValueCollection();
-            data["path"] = path.Replace("//", "/");
-            string s = address + "path/oper/remove/";
-            c.UploadValues("https://" + s, "POST", data);
+            try
+            {
+                var data = new System.Collections.Specialized.NameValueCollection();
+                data["path"] = path.Replace("//", "/");
+                string s = address + "path/oper/remove/";
+                c.UploadValues("https://" + s, "POST", data);
+            }
+            catch (Exception e)
+            {
+
+            }
 
             return false;
         }
